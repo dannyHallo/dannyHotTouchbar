@@ -15,17 +15,31 @@
     "commands": [
       {
         "command": "extension.compileAndRun",
-        "title": "Compile and run!"
+        "title": "C & R"
+      },
+      {
+        "command": "extension.renaming",
+        "title": "Rename"
       }
     ],
     "menus": {
       "touchBar": [
         {
           "command": "extension.compileAndRun",
-          "group": "editing"
+          "group": "compile", 
+          "when": "editorTextFocus" 
+        },
+        {
+          "command": "extension.renaming",
+          "group": "rename", 
+          "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
         }
       ]
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dannyHallo/dannyHotTouchbar.git"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
